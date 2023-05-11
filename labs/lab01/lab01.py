@@ -11,7 +11,9 @@ def falling(n, k):
     1
     """
     "*** YOUR CODE HERE ***"
+    if k == 0: return 1
 
+    return n * falling(n-1, k-1)
 
 
 def sum_digits(y):
@@ -28,8 +30,12 @@ def sum_digits(y):
     6
     """
     "*** YOUR CODE HERE ***"
+    temp = 0
 
+    for ele in str(y):
+        temp += int(ele)
 
+    return temp
 
 def double_eights(n):
     """Return true if n has two eights in a row.
@@ -47,5 +53,17 @@ def double_eights(n):
     False
     """
     "*** YOUR CODE HERE ***"
+    i = 0
 
+    if len(str(n)) == 2 and str(n) == '88': return True
+
+    while i + 2 <= len(str(n)):
+        strs = str(n)
+        # print(strs[i:i+2])
+        if strs[i:i+2] != '88':
+            i += 1
+        else:
+            return True
+
+    return False
 
